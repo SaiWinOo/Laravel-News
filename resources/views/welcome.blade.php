@@ -1,53 +1,62 @@
-@php use Illuminate\Support\Str; @endphp
-    <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-{{--    @vite('resources/css/app.css')--}}
+@extends('.layouts/frontend-layout')
 
 
-</head>
+@section('title' ,'Laravel News')
 
-<body>
-    @livewire('counter')
+@section('content')
 
-    <x-markdown theme="github-dark">
-        ```php
-        echo 'Hello world';
-        ```
-    </x-markdown>
+    <div class="max-w-[1220px] p-5 mx-auto mt-20 relative h-auto lg:h-[300px]">
+        <h4 class="font-semibold text-5xl">Laravel News</h4>
+        <p class="text-black/50 my-2">Join the Laravel Newsletter and never miss out on any Laravel News</p>
+        <div class="w-full lg:w-1/2 static pb-10 lg:absolute bottom-[-30%]">
+            @livewire('news-letter-form')
+        </div>
+    </div>
+    <div class="bg-white pt-20">
+        <div class="max-w-[1220px] p-5 mx-auto">
+            <div class="flex justify-between items-center">
+                <h2 class="my-20 text-4xl font-bold">The latest</h2>
+                <a href="/blogs" class="text-red-600 font-bold">View All -></a>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 ">
+                @foreach([1,2,3,4,5,6] as $i)
+                    <div class="group transition-all duration-500 max-w-[500px] mx-auto">
+                        <img class="rounded-lg w-full group-hover:opacity-80 h-[300px] lg:h-[220px] " src="https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel11.jpg" alt="">
+                        <h2 class="font-bold group-hover:text-red-600 text-2xl my-2">New Laravel 11 Apps Include a Health Check Endpoint</h2>
+                    </div>
+                @endforeach
+            </div>
 
-    <x-markdown>
-        # My title
 
-        This is a [link to our website](https://spatie.be)
+            <div class="flex justify-between items-center">
+                <h2 class="my-20 text-4xl font-bold">Most Read</h2>
+                <a href="/blogs" class="text-red-600 font-bold">View All -></a>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 ">
+                @foreach([1,2,3,4,5,6] as $i)
+                    <div class="group transition-all duration-500 max-w-[500px] mx-auto">
+                        <img class="rounded-lg w-full group-hover:opacity-80 h-[300px] lg:h-[220px] " src="https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel11.jpg" alt="">
+                        <h2 class="font-bold group-hover:text-red-600 text-2xl my-2">New Laravel 11 Apps Include a Health Check Endpoint</h2>
+                    </div>
+                @endforeach
+            </div>
 
-        ```php
-        echo 'Hello world';
-        ```
-    </x-markdown>
+            <div class="flex justify-between items-center">
+                <h2 class="my-20 text-4xl font-bold">Laravel Videos</h2>
+                <a href="/blogs" class="text-red-600 font-bold">View All -></a>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 ">
+                @foreach([1,2,3,4,5,6] as $i)
+                    <div class="group transition-all duration-500 max-w-[500px] mx-auto">
+                        <img class="rounded-lg w-full group-hover:opacity-80 h-[300px] lg:h-[220px] " src="https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel11.jpg" alt="">
+                        <h2 class="font-bold group-hover:text-red-600 text-2xl my-2">New Laravel 11 Apps Include a Health Check Endpoint</h2>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+    </div>
+
+@endsection
 
 
-    <x-markdown>
-        # My title
-        This is a [link to our website](https://spatie.be)
-
-
-        ```php
-        echo 'Hello world';
-        ```
-        {{ $blog->content }}
-    </x-markdown>
-
-</body>
-
-</html>
