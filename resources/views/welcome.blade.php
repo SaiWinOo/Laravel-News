@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@php use Illuminate\Support\Str; @endphp
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -11,11 +12,42 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+{{--    @vite('resources/css/app.css')--}}
+
 
 </head>
 
 <body>
-    @livewire('counter');
+    @livewire('counter')
+
+    <x-markdown theme="github-dark">
+        ```php
+        echo 'Hello world';
+        ```
+    </x-markdown>
+
+    <x-markdown>
+        # My title
+
+        This is a [link to our website](https://spatie.be)
+
+        ```php
+        echo 'Hello world';
+        ```
+    </x-markdown>
+
+
+    <x-markdown>
+        # My title
+        This is a [link to our website](https://spatie.be)
+
+
+        ```php
+        echo 'Hello world';
+        ```
+        {{ $blog->content }}
+    </x-markdown>
+
 </body>
 
 </html>

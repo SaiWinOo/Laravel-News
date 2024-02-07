@@ -2,6 +2,7 @@
 
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/', function () {
 
     $blog =     Blog::first();
 
-    // $blog->content = 
-
-    return view('welcome');
+    return view('welcome',[
+        'blog' => $blog
+    ]);
 });
