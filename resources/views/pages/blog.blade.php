@@ -1,11 +1,10 @@
 @extends('.layouts/frontend-layout')
 
-@section('title', $category->name . ' | Laravel News')
-
+@section('title', isset($category) ? $category->name : 'Blog' . ' | Laravel News')
 
 @section('content')
 
-    @livewire('blogs',['category' => $category])
+    @livewire('blogs',['category' => @isset($category) ? $category : null])
 
 @endsection
 

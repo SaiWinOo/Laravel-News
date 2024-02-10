@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TutorialController;
 use App\Models\Blog;
+use App\Models\Partner;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
@@ -17,13 +20,11 @@ use Illuminate\Support\Str;
 |
 */
 
-Route::get('/', function () {
+Route::get('/',[HomeController::class,'index']);
 
-    $blog =     Blog::first();
+Route::get('/blog',[BlogController::class,'get']);
 
-    return view('welcome',[
-        'blog' => $blog
-    ]);
-});
+Route::get('/partners',[PartnerController::class,'index']);
+Route::get('/partners/{type:slug}',[PartnerController::class,'show']);
 
-Route::get('/category/{category:slug}',[BlogController::class,'index']);
+Route::get('/category/{category:slug}',[BlogController::class,'getByCategory']);

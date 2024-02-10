@@ -18,7 +18,7 @@
             <section>
                 <div class="flex justify-between items-center">
                     <h2 class="my-20 text-4xl font-bold">The latest</h2>
-                    <a href="/blogs" class="text-red-600 font-bold">View All -></a>
+                    <a href="/blog" wire:navigate class="text-red-600 font-bold">View All</a>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 ">
                     @foreach([1,2,3,4,5,6] as $i)
@@ -45,8 +45,8 @@
                             <div class="lg:shrink-0">
                                 <div>
                                      <form>
-                                        <div class="flex w-full flex-wrap items-stretch gap-4">
-                                            <label class="relative flex min-w-[240px] flex-1 items-center bg-white">
+                                        <div class="flex w-full flex-wrap items-stretch  gap-4">
+                                            <label class="relative flex min-w-[240px] border border-gray-300 rounded-lg flex-1 items-center bg-white">
                                                 <span class="sr-only">Email</span>
                                                 <img src="https://picperf.io/https://laravel-news.com/images/icons/newsletter.svg" alt="Newsletter icon" class="pointer-events-none absolute  left-3 top-3">
                                                 <input type="text" class="w-full rounded-lg border-gray-100 bg-transparent px-12 py-3 text-gray-600 placeholder-gray-600/50 transition focus:border-gray-100 focus:bg-gray-100/40 focus:outline-none focus:ring-2 focus:ring-red-600/80 focus:ring-offset-2" placeholder="Email">
@@ -64,56 +64,21 @@
             </section>
 
 
-
-            <section>
-                <div class="flex justify-between items-center">
-                    <h2 class="my-20 text-4xl font-bold">Most Read</h2>
-                    <a href="/blogs" class="text-red-600 font-bold">View All -></a>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 ">
-                    @foreach([1,2,3,4,5,6] as $i)
-                        <div class="group transition-all duration-500 max-w-[500px] mx-auto">
-                            <img class="rounded-lg w-full group-hover:opacity-80 h-[300px] lg:h-[220px] " src="https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel11.jpg" alt="">
-                            <h2 class="font-bold group-hover:text-red-600 text-2xl my-2">New Laravel 11 Apps Include a Health Check Endpoint</h2>
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-
-            <section>
-                <div class="flex justify-between items-center">
-                    <h2 class="my-20 text-4xl font-bold">Laravel Videos</h2>
-                    <a href="/blogs" class="text-red-600 font-bold">View All -></a>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 ">
-                    @foreach([1,2,3,4,5,6] as $i)
-                        <div class="group transition-all duration-500 max-w-[500px] mx-auto">
-                            <iframe class="aspect-video" width="100%"  src="https://www.youtube.com/embed/EmvHPg8JpB4?si=tYcuaMZlcqsD6ALe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            <h2 class="font-bold group-hover:text-red-600 text-2xl my-2">New Laravel 11 Apps Include a Health Check Endpoint</h2>
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-
         </div>
         <section class="bg-black/5">
             <div class="max-w-[1220px] mx-auto">
                 <div class="flex justify-between items-center">
                     <h2 class="my-20 text-6xl font-bold">Partners</h2>
-                    <a href="/blogs" class="text-red-600 font-bold">View All -></a>
+                    <a href="/partners" class="text-red-600 font-bold">View All</a>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 pb-20 p-5">
-                    @foreach([1,2,3,4,5,6,7,8,9,10,11,12] as $i)
-                        <div class="group relative bg-white rounded-lg shadow-lg border border-gray-100 p-8 w-full shrink-0 lg:p-12" >
-                            <img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/partners/logos/curotec2.png" alt="Curotec logo" class="h-10 object-contain object-left-top transition group-hover:opacity-80" height="40" width="300px" loading="lazy">
-                            <h3 class="sr-only">
-                                Curotec
-                            </h3>
-                            <p class="mt-6 text-gray-600 group-hover:opacity-80">A flexible agency partner that helps you build great quality products on schedule Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias assumenda corporis debitis ducimus eius eveniet ipsam iusto, maxime, nam nisi odio rem repellendus similique ..</p>
-                            <a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://www.curotec.com/services/technologies/laravel/" target="_blank">
-                                <span class="sr-only">Curotec</span>
-                            </a>
-                        </div>
+                    @foreach($partners as $partner)
+                        <a href="{{ $partner->website }}" target="_blank">
+                            <div class="group relative bg-white rounded-lg shadow-lg border border-gray-100 p-8 w-full shrink-0 lg:p-12" >
+                                <img src="{{ $partner->logo }}" alt="Curotec logo" class="h-10 object-contain object-left-top transition group-hover:opacity-80" height="40" width="300px" loading="lazy">
+                                <p class="mt-6 text-gray-600 group-hover:opacity-80"> {{ $partner->description }}</p>
+                            </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -122,7 +87,7 @@
             <section class="max-w-[1220px] mx-auto">
                 <div class="flex justify-between items-center">
                     <h2 class="my-20 text-4xl font-bold">Tutorials</h2>
-                    <a href="/blogs" class="text-red-600 font-bold">View All -></a>
+                    <a href="/blogs" class="text-red-600 font-bold">View All</a>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 my-10 ">
                     @foreach([1,2,3,4,5,6] as $i)
@@ -137,7 +102,7 @@
             <section class="max-w-[1220px] mx-auto">
                 <div class="flex justify-between items-center">
                     <h2 class="my-20 text-4xl font-bold">Laravel Packages</h2>
-                    <a href="/blogs" class="text-red-600 font-bold">View All -></a>
+                    <a href="/blogs" class="text-red-600 font-bold">View All</a>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 my-10 ">
                     @foreach([1,2,3,4,5,6,7,8] as $i)

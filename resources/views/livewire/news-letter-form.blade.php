@@ -2,8 +2,8 @@
     <span class="absolute inset-y-0 left-0 w-1 bg-red-600"></span>
     <div>
         <!--[if BLOCK]><![endif]--> <form >
-            <div class="flex w-full flex-wrap items-stretch gap-4" >
-                <label class="relative flex min-w-[240px] flex-1 items-center bg-white">
+            <div class="flex w-full flex-wrap items-stretch gap-4 " >
+                <label class="relative flex min-w-[240px] flex-1 items-center border rounded-lg bg-white">
                     <span class="sr-only">Email</span>
                     <img src="https://picperf.io/https://laravel-news.com/images/icons/newsletter.svg" alt="Newsletter icon" class="pointer-events-none absolute left-3 top-3">
                     <input  type="text" class="w-full rounded-lg border-gray-100 bg-transparent px-12 py-3 text-gray-600 placeholder-gray-600/50 transition focus:border-gray-100 focus:bg-gray-100/40 focus:outline-none focus:ring-2 focus:ring-red-600/80 focus:ring-offset-2" placeholder="Email">
