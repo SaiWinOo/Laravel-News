@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\TutorialController;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -23,3 +25,5 @@ Route::get('/', function () {
         'blog' => $blog
     ]);
 });
+
+Route::get('/category/{category:slug}',[BlogController::class,'index']);

@@ -31,6 +31,7 @@ class CategoryResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Textarea::make('description'),
             ]);
     }
 
